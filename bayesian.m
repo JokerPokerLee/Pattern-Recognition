@@ -3,7 +3,7 @@ if ~exist('sample', 'var')
 end
 pkg load statistics;
 fft_sample = abs(fft(test_sample, 1000, 2))(:,1:250);
-vec = pca_vec(fft_sample, 1, 1);
+vec = pca_vec(fft_sample, 6, 1);
 train_data = pca_trans(process(sample), vec);
 [pw, class_data] = classify(train_data, label);
 model = build_model(class_data);
