@@ -1,13 +1,13 @@
 function [result] = predict(sample, label, model, pw)
   m = size(sample, 1);
   n = size(sample, 2);
-  if n != size(model(1).mu)
+  if n != size(model{1}.mu)
     sprintf('[predict]: Dimension dismatch.')
     return;
   end
   tot = 0;
   cor = 0;
-  k = size(model);
+  k = size(model, 1);
   result = zeros(3, 3);
   cnt = 0;
   for i = 1:m
@@ -17,7 +17,7 @@ function [result] = predict(sample, label, model, pw)
     cnt = cnt + 1;
     pd = [];
     for j = 1:k
-      p = mvnpdf(sample(i,:), model(j).mu, model(j).sig);
+      p = mvnpdf(sample(i,:), model{j}.mu, model{j}.sig);
       pd = [pd; p * pw(j)];
     end
     [v, idx] = max(pd);

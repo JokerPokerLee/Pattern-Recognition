@@ -2,15 +2,17 @@
 % retain at least <prop> proportion message of sample after pca
 % if mode equals to 1, prop determine how many component to select,
 % otherwise prop indicate how much info to remain
-function [vec] = pca_vec(sample, prop, mode)
+function [vec, param] = pca_vec(sample, prop, mode)
   % n-dim sample
   n = size(sample, 2);
+  param.mu = mean(sample);
+  param.std = std(sample);
+  sample = (sample - param.mu) ./ param.std;
   pkg load statistics;
   [COEFF, SCORE, latent] = princomp(sample);
   p = cumsum(latent) ./ sum(latent);
   if mode == 1
     vec = COEFF(:, 1:prop);
-    p(prop)
     return
   end
   % init k to n

@@ -1,5 +1,9 @@
 # temporary data
 tmp/*
 
+# data dir
+data/*
+label/*
+
 # workspace
 octave-workspace
