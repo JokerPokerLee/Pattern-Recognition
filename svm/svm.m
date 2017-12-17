@@ -1,4 +1,6 @@
 addpath('C:/Users/Joker Poker/Desktop/libsvm-3.22/matlab');
+[~, sca_class] = classify(sca_sam, fil_lab);
+sub_sample = sub_set(sca_class, 500);
 si = [100:100:1000];
 si_acc = [];
 for m = si
