@@ -1,4 +1,4 @@
-function [fil_sam, fil_lab, param] = filter(sample, label, param)
+function [fil_sam, fil_lab, param] = rm_outlier(sample, label, param)
   if size(param, 1) == 0
     param.mu = mean(sample);
     param.std = std(sample);

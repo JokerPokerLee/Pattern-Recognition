@@ -1,7 +1,9 @@
 function [sam, lab, tsam, tlab] = fil_sca(sample, label, test_data, test_label)
 	% remove outliar (two std away from mean)
-	[fil_sam, fil_lab, fil_param] = filter(sample, label, []);
-	[fil_tsam, fil_tlab, ~] = filter(test_data, test_label, fil_param);
+	[fil_sam, fil_lab, fil_param] = rm_outlier(sample, label, []);
+	% [fil_tsam, fil_tlab, ~] = rm_outlier(test_data, test_label, fil_param);
+	fil_tsam = test_data;
+	fil_tlab = test_label;
 
 	% linear scale data to [-1, 1]
 	range.u = 1;

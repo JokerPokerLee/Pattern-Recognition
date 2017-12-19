@@ -5,5 +5,8 @@ tmp/*
 data/*
 label/*
 
+# graph
+report/*.pdf
+
 # workspace
 octave-workspace
