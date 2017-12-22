@@ -2,6 +2,8 @@
 
 Use 19 people's brain wave data to decide the 20th one's.
 
+* `statistics` and 'nnet' packages are needed.
+
 ### Bayesian decision ###
 
 ### SVM ###
