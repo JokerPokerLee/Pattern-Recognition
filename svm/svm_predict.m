@@ -6,5 +6,5 @@ function [acc] = svm_predict(sample, label, model)
     prob(:,k) = p(:,model{k}.Label==1);
   end
   [~,pred] = max(prob,[],2);
-  acc = sum(pred == label) ./ numel(label)    %# accuracy
+  acc = sum(pred == label) ./ numel(label);    %# accuracy
 end

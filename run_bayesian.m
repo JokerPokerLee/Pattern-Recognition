@@ -8,7 +8,9 @@ if ~exist('sample', 'var')
 	[sample, label, tsample, tlabel] = load_data();
 end
 
-[norm_sample, norm_tsample] = fft_pca(sample, tsample, 6, 1);
+if ~exist('norm_sample', 'var')
+	[norm_sample, norm_tsample] = fft_pca(sample, tsample, 6, 1);
+end
 
 [pw, class_data] = classify(norm_sample, label);
 model = build_model(class_data);
